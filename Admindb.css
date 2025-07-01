@@ -1,0 +1,141 @@
+/* Reset and Base Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+}
+
+/* Sidebar Container */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background-color: #0f1c4d; /* Deep navy blue */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* Logo Section */
+.logo img {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+/* Profile Section */
+.profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.admin-info .name {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.admin-info .role {
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+/* Menu Section */
+.menu {
+  flex-grow: 1;
+}
+
+.menu-title {
+  font-size: 0.75rem;
+  color: #aaa;
+  margin: 15px 0 5px;
+  text-transform: uppercase;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 8px;
+  border-radius: 6px;
+  transition: background 0.3s;
+  position: relative;
+}
+
+.menu-item .icon {
+  margin-right: 10px;
+}
+
+/* Active (highlighted) menu */
+.menu-item.active {
+  background-color: #fdd835;
+  color: #000;
+}
+
+/* Hover effect */
+.menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Notification Badge */
+.badge {
+  background-color: red;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 12px;
+  position: absolute;
+  right: 10px;
+}
+
+/* Logout Button */
+.logout-btn {
+  background-color: #ff2e2e;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center icon + text */
+  gap: 0px; /* Space between icon and text */
+  font-size: 10;
+  width: 100%; /* Full width if needed */
+  text-align: center;
+}
+
+.logout-btn i {
+  font-size: 1.2rem;
+}
+
+
+.logout-btn:hover {
+  background-color: #d62828;
+}
+
+/* Uniform icon sizing */
+.menu-item .icon i {
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+/* Optional: icon in logout button */
+.logout-btn i {
+  margin-right: 4px;
+  font-size: 1.2rem;
+}
