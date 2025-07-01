@@ -1,10 +1,10 @@
 <?php
 session_start();
-include 'db.php';
+include 'db.php'; // This connects to your gch_login DB
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST["email"];
-    $password = $_POST["password"];
+    $email = trim($_POST["email"]);
+    $password = trim($_POST["password"]);
 
     $sql = "SELECT * FROM users WHERE email = ?";
     $stmt = $conn->prepare($sql);
@@ -14,15 +14,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt->get_result();
     if ($result->num_rows === 1) {
         $row = $result->fetch_assoc();
+
         if (password_verify($password, $row['password'])) {
             $_SESSION['user'] = $row['email'];
-            echo "Login successful! Redirecting...";
-            header("refresh:2; url=dashboard.php");
+
+            // Optional: show message briefly before redirecting
+            echo "<script>
+                alert('Login successful!');
+                window.location.href = 'Admindb.html';
+            </script>";
+            exit();
         } else {
-            echo "Invalid password.";
+            echo "<script>alert('Invalid password.'); window.location.href = 'index.html';</script>";
+            exit();
         }
     } else {
-        echo "Email not found.";
+        echo "<script>alert('Email not found.'); window.location.href = 'index.html';</script>";
+        exit();
     }
 
     $stmt->close();
